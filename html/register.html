@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/toast.css">
+    <link rel="stylesheet" href="../style/register.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="div-two show" id="divTwo">
+            <form class="register-form" id="form-1" method="POST">
+                <h1>Sign Up</h1>
+                <div class="form-group">
+                    <input id="email" name="email" type="text" placeholder="Nhập email" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <input id="password" name="password" type="password" class="form-control"
+                        placeholder="Nhập password">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <input id="password_confirmation" name="password_confirmation" type="password" class="form-control"
+                        placeholder="Nhập lại password">
+                    <span class="form-message"></span>
+                </div>
+                <div class="sign">
+                    <button class="form-submit" onclick="checkRegister()">Sign Up</button>
+                    <button type="button" id="signIn" class="disable">
+                        <a href="../html/login.html">Sign In</a>
+                    </button>
+                    <a href="#" style="text-decoration: none;">FORGOT YOUR PASSWORD?</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="toast"></div>
+    </div>
+
+
+    <script>
+
+        function uuid() {
+            return new Date().getMilliseconds() + Math.floor(Math.random() * 999999999);
+        }
+
+        function showSuccessToast() {
+            toast({
+                title: "Success!",
+                message: "Đăng kí thành công",
+                type: "success",
+                duration: 5000
+            });
+        }
+
+        function showErrorToast() {
+            toast({
+                title: "Error!",
+                message: "Email đã tồn tại",
+                type: "error",
+                duration: 5000
+            });
+        }
+
+        // Toast function
+        function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+            const main = document.getElementById("toast");
+            if (main) {
+                const toast = document.createElement("div");
+
+                // Auto remove toast
+                const autoRemoveId = setTimeout(function () {
+                    main.removeChild(toast);
+                }, duration + 1000);
+
+                // Remove toast when clicked
+                toast.onclick = function (e) {
+                    if (e.target.closest(".toast__close")) {
+                        main.removeChild(toast);
+                        clearTimeout(autoRemoveId);
+                    }
+                };
+
+                const icons = {
+                    success: "fas fa-check-circle",
+                    info: "fas fa-info-circle",
+                    warning: "fas fa-exclamation-circle",
+                    error: "fas fa-exclamation-circle"
+                };
+                const icon = icons[type];
+                const delay = (duration / 1000).toFixed(2);
+                toast.classList.add("toast", `toast--${type}`);
+                toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+
+                toast.innerHTML = `
+                        <div class="toast__icon">
+                            <i class="${icon}"></i>
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">${title}</h3>
+                            <p class="toast__msg">${message}</p>
+                        </div>
+                        <div class="toast__close">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    `;
+                main.appendChild(toast);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mong muốn của chúng ta
+            Validator({
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                    Validator.isRequired('#password_confirmation'),
+                    Validator.isConfirmed('#password_confirmation', function () {
+                        return document.querySelector('#form-1 #password').value;
+                    }, 'Mật khẩu nhập lại không chính xác')
+                ],
+                onSubmit: function (data) {
+                    // Call API
+                    console.log(data);
+                    let listUsers = JSON.parse(localStorage.getItem("listUser")) || [];
+                    let flag = true;
+                    for (let i = 0; i < listUsers.length; i++) {
+                        if (listUsers[i].email == data.email) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        /* data.email = isEmail;
+                        data.password = minLength; */
+                        data.idUser = uuid();
+                        data.cartUser = [];
+                        data.isAdmin = false;
+                        data.isActive = true;
+                        listUsers.push(data);
+                        localStorage.setItem("listUser", JSON.stringify(listUsers));
+                        showSuccessToast();
+                        function changeToLoginPage() {
+                            window.location.href = "./login.html";
+                        }
+                        setTimeout(changeToLoginPage, 1000);
+                    } else {
+                        showErrorToast()
+                        // alert("User email is already exist");
+                    }
+                }
+            });
+        });
+        /* function checkRegister() {
+            console.log("ao roi")
+            let listUser = JSON.parse(localStorage.getItem("listUser"));
+            let detailUser = {
+                email: valueEmail,
+                password: valuePassword,
+                idUser: uuid(),
+                cartUser: [],
+                accountlocks: 0,
+                unAccountlocks: 0,
+            }
+            listUser.push(detailUser);
+            localStorage.setItem("listUser", JSON.stringify(listUser));
+        } */
+
+    </script>
+    <script src="../js/validator.js"></script>
+
+
+</body>
+
+</html>

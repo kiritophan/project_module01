@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/admin.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <h1 class="title">QUẢN LÝ NGƯỜI DÙNG</h1>
+    <table id="tableUser">
+        <!-- noi dung sinh ra tu JS -->
+    </table>
+    <h2 class="title-product">QUẢN LÝ SẢN PHẨM</h2>
+
+    <form id="menuForm" onsubmit="submitForm(event)">
+        <input name="menuId" style="display: none">
+        <label for="menuName">Tên sản phẩm:</label>
+        <input type="text" name="menuName" required>
+        <label for="image">Img:</label>
+        <input accept=".jpg, .png" type="file" name="image">
+        <label for="menuPrice">Price:</label>
+        <input type="text" name="menuPrice" required>
+        <label for="menuType">Type:</label>
+        <select name="menuType">
+            <option value="RAMEN">RAMEN</option>
+            <option value="meUDONnu">UDON</option>
+            <option value="SUSHI">SUSHI</option>
+            <option value="SETSUSHI">SETSUSHI</option>
+            <option value="SOBA">SOBA</option>
+            <option value="TAKOYAKI">TAKOYAKI</option>
+            <option value="YAKINIKU">YAKINIKU</option>
+            <option value="TENPURA">TENPURA</option>
+
+        </select>
+        <!-- <input type="text" name="menuType"  required>  -->
+        <button type="submit" id="submit">ADD</button>
+    </form>
+
+    <ul id="productList"></ul>
+
+    <table id="tableMenu">
+        <!-- noi dung sinh ra tu JS -->
+
+    </table>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

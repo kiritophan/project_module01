@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-cart {
+    margin: 0 auto;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+table tr td {
+    padding: 20px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    min-height: 150px;
+}
+
+.material-symbols-outlined {
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+table tr td img {
+    width: 100px;
+    height: 100px;
+}
+
+.showTotal {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.checkOut {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid red;
+    height: 40px;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #bfbcbc;
+    cursor: pointer;
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NishiyamaRamen</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/cart.css">
+    <link rel="stylesheet" href="./style/login.css">
+    <link rel="stylesheet" href="./style/register.css">
+
+</head>
+
+<body>
+    <div class="allContainer">
+        <header class="header" id="headerId">
+            <div class="headerLogo">
+                <a href="">
+                    <img onclick="Myall()" src="./image/logo.png" alt="">
+                </a>
+            </div>
+            <div class="headerSubmenu">
+                <div class="cart">
+                    <a href="./html/cart.html" class="material-symbols-outlined cartImg">
+                        shopping_cart
+                    </a>
+                    <span id="totalCountProducts" class="total-products"></span>
+                </div>
+                <button onclick="checkLogout()" class="logout">
+                    Đăng xuất
+                </button>
+                <button class="login">
+                    <a href="./html/login.html">Đăng nhập</a>
+                </button>
+                <button class="register">
+                    <a href="./html/register.html">Đăng kí</a>
+                </button>
+            </div>
+        
+        </header>
+        <nav class="globalNav">
+            <ul class="contentWarp pcNavi">
+                <li class="all"> <a href="#sideCategory">
+                        <div class="navHover">Menu</div>
+                    </a>
+                </li>
+                <li class="categony"> <a href="./html/gioithieu.html"><span class="navHover">Giới thiệu</span></a></li>
+                <li class="ninki"> <a href="#idFooter"><span class="navHover">Địa điểm</span></a></li>
+                <li class="set"> <a href="#news"> <span class="navHover">Tin tức</span></a></li>
+                <li class="career"> <a href="#idFooter"><span class="navHover">Tuyển dụng</span></a></li>
+                <li class="help"> <a href="#idFooter"><span class="navHover">Hỗ trợ</span></a> </li>
+            </ul>
+        
+        </nav>
+        
+        <div class="container">
+            <!-- -------------------- -->
+        
+            <div class="slidebar">
+                <img onclick="defaultImgId" class="defaultImg">
+                <img onclick="nextImgId" class="nextImg">
+                <div class="scroll__bar">
+                    <div class="bar__item active"></div>
+                    <div class="bar__item"></div>
+                    <div class="bar__item"></div>
+                    <div class="bar__item"></div>
+                    <div class="bar__item"></div>
+                </div>
+            </div>
+        
+            <!-- ----------------------- -->
+            <div class="content">
+                <div class="main">
+                    <div class="side">
+                        <section id="sideCategory" class="sMenu">
+                            <h2 style="color: #e50012; cursor: pointer;" onclick="showAllMenu()">
+                                MENU
+                            </h2>
+                            <div class="searchLeft">
+                                <input oninput="searchProductByName()" class="searchItem" type="text"
+                                    placeholder="Tìm kiếm sản phẩm">
+                                <span class="material-symbols-outlined">
+                                    search
+                                </span>
+                            </div>
+                            <ul class="leftMenu">
+                                <li class="sideLeftMenu">
+                                    <div onclick="myAll()" class="renderSideLeft">
+                                        <span id="renderListAll" style="margin-left: 60px;">ALL MENU</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('rm')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/ramen/ramen1.jpg" alt="">
+                                        <span>RAMEN</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('UD')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/udon/udon1.jpg" alt="">
+                                        <span>UDON</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+        
+                                </li>
+                                <li onclick="fillterProduct('SUSHI')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/sushi/sushi1.jpg" alt="">
+                                        <span>SUSHI</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('SETSUSHI')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/combo/setsushi1.jpg" alt="">
+                                        <span>SETSUSHI</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('SOBA')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/sushi/sushi1.jpg" alt="">
+                                        <span>SOBA</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('TAKOYAKI')">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/combo/setsushi1.jpg" alt="">
+                                        <span>TAKOYAKI</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('YAKINIKU')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/combo/setsushi2.jpg" alt="">
+                                        <span>YAKINIKU</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('TENPURA')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <img class="sideLeftImg" src="./image/products/ramen/ramen2.jpg" alt="">
+                                        <span>TENPURA</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+                                </li>
+                                <li onclick="fillterProduct('DRINK')" class="sideLeftMenu">
+                                    <div class="renderSideLeft">
+                                        <span style="margin-left: 60px;">KHÁC</span>
+                                        <span class="material-symbols-outlined arrowRight">
+                                            double_arrow
+                                        </span>
+                                    </div>
+        
+        
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="content-between">
+                        <section class="search">
+        
+        
+        
+                            <div class="listproducts" id="listproducts">
+                                <!-- render lisproducts -->
+                            </div>
+        
+                        </section>
+                    </div>
+        
+                </div>
+                <div class="list-page-box">
+                    <span onclick="decreasePage()" class="material-symbols-outlined arrow">
+                        chevron_left
+                    </span>
+                    <div class="list-page">
+        
+                        <ul id="listPage">
+                        </ul>
+        
+                    </div>
+                    <span onclick="increasePage()" class="material-symbols-outlined arrow">
+                        chevron_right
+                    </span>
+                </div>
+                <section class="news" id="news">
+                    <div class="newsContainer">
+                        <div class="news-head">
+                            <h2 class="page-head">Tin tức</h2>
+                        </div>
+                        <div class="news-list-container">
+                            <ul class="news-list">
+                                <li class="news-list__item">
+                                    <a href="./html/news.html" class="link__news">
+                                        <span class="link__date">2023.06.02</span>
+                                        <span class="link__text">Thông báo ra mắt món mới</span>
+                                    </a>
+                                </li>
+                                <li class="news-list__item">
+                                    <a href="./html/news.html" class="link__news">
+                                        <span class="link__date">2023.05.31</span>
+                                        <span class="link__text">Thông báo bản quyền</span>
+                                    </a>
+                                </li>
+                                <li class="news-list__item">
+                                    <a href="./html/news.html" class="link__news">
+                                        <span class="link__date">2023.05.28</span>
+                                        <span class="link__text">Khách hàng thân thiết</span>
+                                    </a>
+                                </li>
+                                <li class="news-list__item">
+                                    <a href="./html/news.html" class="link__news">
+                                        <span class="link__date">2023.05.23</span>
+                                        <span class="link__text">Món ngon mỗi ngày</span>
+                                    </a>
+                                </li>
+                                <li class="news-list__item">
+                                    <a href="./html/news.html" class="link__news">
+                                        <span class="link__date">2023.05.21</span>
+                                        <span class="link__text">Đặt hàng nhận ưu đãi</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+        
+            </div>
+        
+        
+        </div>
+        <div class="bottomContact">
+            <a class="link" href="#idFooter">
+                Liên hệ
+            </a>
+        </div>
+        
+        <!-- Hiển thị all page -->
+        <footer class="footer" id="idFooter">
+            <h2>About US</h2>
+            <footer class="footer-content contentwrap">
+                <ul>
+                    <li>Online Shop</li>
+                    <li>
+                        <a href="#sideCategory">Danh sách sản phẩm</a>
+                    </li>
+                    <li>Sản phẩm mới</li>
+                    <li>Quà tặng</li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#headerId">Đăng nhập-Đăng kí thành viên</a>
+                    </li>
+                    <li>
+                        <a href="#headerId">Giỏ hàng</a>
+                    </li>
+                    <li>Yêu thích</li>
+                    <li>
+                        <a href="./html/admin.html">Trang của admin</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>Trợ giúp</li>
+                    <li>Thông báo</li>
+                    <li>Thông tin tuyển dụng</li>
+                </ul>
+                <ul>
+                    <li>Hotline: 0888868798</li>
+                    <li>Contact: ramenso1@gmail.com</li>
+                </ul>
+            </footer>
+            <footer class="footer-logo">
+                <div class="footer-wrap">
+                    <img src="./image/logo.png" alt="">
+                </div>
+                <div class="bct-footer">
+                    <img src="./image/products/footer/DnT1595939596727.png" alt="">
+                </div>
+            </footer>
+        </footer>
+    </div>
+    
+
+   
+
+    <script src="./js/index.js"></script>
+    <!-- <script src="./js/logintai.js"></script> -->
+
+</body>
+
+</html>

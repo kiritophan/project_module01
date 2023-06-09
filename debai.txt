@@ -1,0 +1,12 @@
+Chức năng yêu cầu
+1. show được sản phẩm ok
+2. chọn all, sản phẩm theo chủ đề, search sản phẩm. ok
+3. Người dùng mua được hàng ok
++ đăng nhập mới cho mua ok 
++ Mỗi user 1 cái giỏ hàng ok
+4. Trang admin
++ xem user (tên đăng nhập) có quyền active user 
+  (khóa tài khoản, xóa tk) ok
++ thêm sản phẩm web, sửa xóa ok
+5. responsive 
+6. Review sản phẩm x

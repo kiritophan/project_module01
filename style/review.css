@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#reviews {
+    width: 400px;
+    margin: 20px auto;
+    border: 1px solid black;
+
+}
+
+#reviews h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#reviewForm {
+    margin-bottom: 10px;
+    margin: 50px 50px;
+}
+
+#reviewForm #name {
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+#reviewForm #comment {
+    width: 100%;
+    height: 100px;
+}
+
+#reviewForm input,
+#reviewForm textarea {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+
+#reviewList {
+    list-style: none;
+    padding: 0;
+}
+
+#reviewList li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#reviews #sendComment {
+    display: flex;
+    margin: 0 auto;
+    width: 40px;
+    justify-content: center;
+    background-color: rgb(25, 60, 114);
+    color: #fff;
+    cursor: pointer;
+}
